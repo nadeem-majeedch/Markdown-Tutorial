@@ -1,0 +1,12 @@
+title: Markdown Language Tutorial
+description: A complete beginner-to-expert Markdown course for university students
+theme: jekyll-theme-cayman
+markdown: GFM
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true
+exclude:
+  - CONTRIBUTING.md
+  - LICENSE
