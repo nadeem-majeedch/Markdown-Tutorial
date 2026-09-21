@@ -1,0 +1,154 @@
+# MkDocs configuration for the Markdown Language Tutorial.
+#
+# The course Markdown lives at the repository root. MkDocs requires docs_dir
+# to be a child directory, so `python scripts/prepare_docs.py` (run by the
+# Pages workflow and for local builds) first stages the course files into the
+# git-ignored `_site-docs/` folder. The originals are never modified. MkDocs
+# maps the staged README.md to the site index and rewrites relative .md
+# links between pages automatically.
+#
+# NOTE: `strict` stays disabled on purpose. Some lessons deliberately use
+# placeholder image paths (see assets/README.md) and a few sample anchor
+# links point at non-existent headings, which would otherwise turn into
+# build-breaking warnings.
+
+site_name: Markdown Language Tutorial
+site_description: A complete beginner-to-expert Markdown course for university students
+site_url: https://nadeem-majeedch.github.io/Markdown-Tutorial/
+
+repo_url: https://github.com/nadeem-majeedch/Markdown-Tutorial
+repo_name: nadeem-majeedch/Markdown-Tutorial
+edit_uri: edit/main/
+
+copyright: Copyright &copy; nadeem-majeedch — released under the MIT License
+
+# Generated staging copy of the course content (see scripts/prepare_docs.py).
+docs_dir: _site-docs
+site_dir: site
+use_directory_urls: true
+
+strict: false
+
+# Keep assets/README.md out of the navigation without excluding the file
+# (final-project.md links to it).
+not_in_nav: |
+  assets/README.md
+
+theme:
+  name: material
+  language: en
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.top
+    - navigation.footer
+    - navigation.tracking
+    - toc.follow
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+
+plugins:
+  - search
+  # Renders the ```mermaid fenced blocks used in Lesson 21.
+  - mermaid2:
+      arguments:
+        theme: neutral
+
+markdown_extensions:
+  - tables
+  - fenced_code
+  - attr_list
+  - md_in_html
+  - def_list
+  - footnotes
+  - toc:
+      permalink: true
+      # GitHub-compatible heading anchors so cross-page links such as
+      # `12-code.md#syntax` keep working on the published site.
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  # Lesson 20 teaches GitHub-style $...$ / $$...$$ math.
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# Navigation mirrors the "Course contents" index in the top-level README.md.
+nav:
+  - Home: index.md
+  - Part 1 — Foundations:
+      - 01. Introduction to Markdown: lessons/01-introduction.md
+      - 02. What is Markdown and why use it?: lessons/02-what-is-markdown.md
+      - 03. Syntax and basic rules: lessons/03-basic-syntax.md
+      - 04. Headings: lessons/04-headings.md
+      - 05. Paragraphs and line breaks: lessons/05-paragraphs.md
+      - 06. Text formatting: lessons/06-text-formatting.md
+      - 07. Blockquotes: lessons/07-blockquotes.md
+      - 08. Lists: lessons/08-lists.md
+      - 09. Nested lists: lessons/09-nested-lists.md
+  - Part 2 — Core documents:
+      - 10. Links: lessons/10-links.md
+      - 11. Images: lessons/11-images.md
+      - 12. Code: lessons/12-code.md
+      - 13. Horizontal rules and escaping: lessons/13-horizontal-rules-escaping.md
+      - 14. Tables: lessons/14-tables.md
+      - 15. Task lists: lessons/15-task-lists.md
+  - Part 3 — Extended Markdown:
+      - 16. HTML inside Markdown: lessons/16-html.md
+      - 17. Anchors and internal links: lessons/17-internal-links.md
+      - 18. Footnotes and definition lists: lessons/18-footnotes.md
+      - 19. Emojis: lessons/19-emojis.md
+      - 20. Mathematical equations: lessons/20-math.md
+      - 21. Mermaid diagrams: lessons/21-mermaid.md
+  - Part 4 — GitHub and professional writing:
+      - 22. GitHub-Flavored Markdown: lessons/22-gfm.md
+      - 23. GitHub-specific Markdown: lessons/23-github-markdown.md
+      - 24. Markdown for README files: lessons/24-readme-files.md
+      - 25. Markdown for documentation: lessons/25-documentation.md
+      - 26. Academic notes, labs, and reports: lessons/26-academic-notes.md
+      - 27. Project documentation: lessons/27-project-documentation.md
+      - 28. Markdown with GitHub Pages: lessons/28-github-pages.md
+  - Part 5 — Expert practice:
+      - 29. Limitations and portability: lessons/29-limitations.md
+      - 30. Common mistakes: lessons/30-common-mistakes.md
+      - 31. Best practices: lessons/31-best-practices.md
+      - 32. Accessibility: lessons/32-accessibility.md
+      - 33. Advanced techniques: lessons/33-advanced-markdown.md
+      - 34. Professional examples: lessons/34-professional-examples.md
+  - Practice and reference:
+      - Exercises index: exercises/README.md
+      - Student work area: exercises/work/README.md
+      - Final project: projects/final-project.md
+      - Cheat sheet: resources/cheat-sheet.md
+      - FAQ: resources/faq.md
+      - References: resources/references.md

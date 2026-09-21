@@ -1,0 +1,6 @@
+# MkDocs site for the Markdown Language Tutorial (GitHub Pages deployment).
+# Installed by .github/workflows/pages.yml and usable locally with:
+#   python -m pip install -r requirements.txt && mkdocs serve
+mkdocs==1.6.1
+mkdocs-material==9.7.7
+mkdocs-mermaid2-plugin==1.2.3

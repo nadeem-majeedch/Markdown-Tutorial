@@ -2,7 +2,7 @@
 .claude
 .gemini
 .opencode
-
+.freebuff/
 # IDE and Editors
 **/.idea/
 **/.vscode/
@@ -49,6 +49,8 @@
 
 # Python
 **/__pycache__/
+**/.venv/
+.venv/
 *.py[cod]
 *$py.class
 **/.Python
@@ -156,6 +158,10 @@
 **/.flutter-plugins
 **/.flutter-plugins-dependencies
 
+# MkDocs
+site/
+_site-docs/
+
 # Compressed files
 *.zip
 *.rar
@@ -174,3 +180,4 @@
 *.lz
 *.lzma
 *.iso
+.freebuff/
