@@ -201,7 +201,7 @@ After you finish the lessons, complete the [final project](projects/final-projec
 - Working relative links and a table of contents
 
 ## License
-Engr. Dr. Muhammad Nadeem Majeed, Professor, Department of Data Science (PUCIT), University of the Punjab, Lahore
+Engr. Dr. Muhammad Nadeem Majeed, Professor, Department of Data Science (PUCIT), University of the Punjab, Lahore.
 This course is released under the [MIT License](LICENSE). You may use it in classes, forks, and personal study.
 
 ## Contributing
